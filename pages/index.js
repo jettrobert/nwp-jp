@@ -135,6 +135,7 @@ export async function getStaticProps() {
   try {
     posts = await api.posts.browse({
       limit: 15, // Feel free to adjust the limit
+      filter: 'tags:[jp]' // Only fetch posts with the 'jp' tag
     });
   } catch (error) {
     console.error(error);
