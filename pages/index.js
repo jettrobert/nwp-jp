@@ -106,7 +106,7 @@ const MyBlog = ({ posts }) => {
       </div>
       <div className="scrolling-text-container">
         <div className="scrolling-text">
-        これはNEW WORLD PERSONコンテンツサービスのテストです。これはテストだけです。
+          NEW WORLD コンテンツシステムへようこそ。未来は私たちのものです。INSTAGRAMでフォローして最新情報を入手してください。
         </div>
       </div>
       <div className="container" ref={containerRef}>
@@ -121,6 +121,21 @@ const MyBlog = ({ posts }) => {
         ))}
         <div className="box-spacer" />
       </div>
+
+      <div id="links-container">
+        <a href="https://www.instagram.com/new_world_person/" target="_blank" rel="noopener noreferrer">
+          INSTAGRAM
+        </a>
+        <span className="divider"> | </span>
+        <a href="https://www.newworldperson.com" target="_blank" rel="noopener noreferrer">
+          他の言語で読む
+        </a>
+        <span className="divider">|</span>
+        <a href="https://www.instagram.com/new_world_person/" target="_blank" rel="noopener noreferrer">
+          お問い合わせ
+        </a>
+      </div>
+
       <img id="bottom-logo" src="/logo-white.svg" alt="New World Person" />
     </>
   );
@@ -135,7 +150,7 @@ export async function getStaticProps() {
   try {
     posts = await api.posts.browse({
       limit: 15, // Feel free to adjust the limit
-      filter: 'tags:[jp]' // Only fetch posts with the 'jp' tag
+      filter: 'tags: [syn-jp]'
     });
   } catch (error) {
     console.error(error);
