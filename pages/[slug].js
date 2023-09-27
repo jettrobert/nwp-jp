@@ -111,6 +111,8 @@ export default function Post({ post }) {
         }
     }, []);
 
+    const [isGrayBoxVisible, setGrayBoxVisible] = useState(true);
+
     return (
         <>
             <meta charSet="UTF-8" />
@@ -146,6 +148,12 @@ export default function Post({ post }) {
                     ))}
                     <div className="read-time">{post.reading_time} 分読み</div>  {/* The new read-time tag */}
                 </div>
+                {isGrayBoxVisible && (
+                    <div className="dark-gray-box" id="sampleBox">
+                        <span className="close-icon" onClick={() => setGrayBoxVisible(false)}>X</span>
+                        <span className="sample-text">SYN-JPに対する当社のモデルはまだ非常に初期段階にあり、その執筆品質についての読者からのフィードバックを求めています。何か気づきがあれば、Instagramの@new_world_personにメッセージを送ってください</span>
+                    </div>
+                )}
                 <div className="markdown-content" dangerouslySetInnerHTML={{ __html: post.html }}></div>
             </div>
             {isPopupVisible && (
